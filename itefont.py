@@ -1,6 +1,5 @@
 import io
 import struct
-from itertools import zip_longest
 
 import numpy as np
 from PIL import Image
@@ -8,12 +7,6 @@ from PIL import Image
 from graphics import grid
 
 CHAR_COUNT = 256
-
-def grouper(iterable, n, fillvalue=None):
-    "Collect data into fixed-length chunks or blocks"
-    # grouper('ABCDEFG', 3, 'x') --> ABC DEF Gxx"
-    args = [iter(iterable)] * n
-    return zip_longest(*args, fillvalue=fillvalue)
 
 def parse_font_header(stream):
     max_h, max_w, row_len = struct.unpack('<3H', stream.read(6))
