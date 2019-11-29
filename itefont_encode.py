@@ -14,11 +14,10 @@ def read_chars(frames):
             yield 0, 0, 0, 0, empty
         else:
             loc, img = frame
-            nd = 1 * (np.asarray(img, dtype=np.uint8) == 64)
-            ndr = np.any(nd, axis=0)
+            ndr = np.any(img, axis=0)
             width = 1 + np.where(ndr)[0][-1] if ndr.any() else 0
             assert width <= loc['x2']
-            packed = np.packbits(nd[:, :width], axis=1)
+            packed = np.packbits(img[:, :width], axis=1)
             yield xpos, width, 0, loc['x2'], packed
             xpos += packed.shape[1]
 

@@ -36,14 +36,14 @@ if __name__ == '__main__':
 
     # unpack
 
-    # with open('ITE.RSC', 'rb') as f:
-    #     index = read_rsc_index(f)
-    #     for idx, data in enumerate(unpack(f, index)):
-    #         with open(f'OUT/RES_{idx:04d}.RES', 'wb') as out:
-    #             out.write(data)
+    with open('ITE.RSC', 'rb') as f:
+        index = read_rsc_index(f)
+        for idx, data in enumerate(unpack(f, index)):
+            with open(f'OUT/RES_{idx:04d}.RES', 'wb') as out:
+                out.write(data)
 
     # pack
 
-    files = glob.iglob('OUT/*')
-    with open('ITE-NEW.RSC', 'wb') as out:
-        pack(out, read_files(files))
+#     files = glob.iglob('OUT/*')
+#     with open('ITE-NEW.RSC', 'wb') as out:
+#         pack(out, read_files(files))
